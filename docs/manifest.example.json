@@ -1,0 +1,80 @@
+{
+  "id": "witcher-3",
+  "name": "The Witcher 3: Wild Hunt",
+  "shortDescription": "Game nhập vai thế giới mở huyền thoại",
+  "longDescription": "The Witcher 3: Wild Hunt là game nhập vai hành động thế giới mở, kể về câu chuyện của Geralt of Rivia, một thợ săn quái vật chuyên nghiệp đang tìm kiếm đứa con gái nuôi của mình giữa một thế giới rộng lớn đầy nguy hiểm và phản bội.\n\nBản việt hóa này được thực hiện bởi cộng đồng Viethoagame, với mục tiêu mang đến trải nghiệm chơi game tốt nhất cho người Việt.",
+  "developer": "CD Projekt Red",
+  "publisher": "CD Projekt",
+  "releaseDate": "2015-05-19",
+  "genres": ["RPG", "Open World", "Fantasy"],
+  "tags": ["mature", "story-rich", "magic"],
+  "coverImage": "https://drive.google.com/uc?export=download&id=COVER_FILE_ID",
+  "screenshots": [
+    "https://drive.google.com/uc?export=download&id=SS1_FILE_ID",
+    "https://drive.google.com/uc?export=download&id=SS2_FILE_ID"
+  ],
+  "videoUrl": "https://www.youtube.com/watch?v=c0i88t0Kacs",
+  "systemRequirements": {
+    "min": "CPU: i5-2500K / RAM: 6GB / GPU: GTX 660",
+    "rec": "CPU: i7-3770 / RAM: 8GB / GPU: GTX 1060 6GB"
+  },
+  "supportedEngines": ["redengine"],
+  "latestVersion": "1.32",
+  "versions": [
+    {
+      "version": "1.32",
+      "releasedAt": "2026-09-15",
+      "sizeBytes": 52428800,
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=VI132_FILE_ID",
+      "checksum": "sha256:abc123def456...",
+      "changelog": "- Sửa lỗi font phụ đề\n- Việt hóa thêm 200 NPC\n- Tương thích DLC Blood and Wine\n- Cải thiện menu chính",
+      "isBeta": false,
+      "isBroken": false
+    }
+  ],
+  "detect": {
+    "launchers": ["steam", "gog"],
+    "steamAppId": "292030",
+    "gogAppId": "1207665643",
+    "executableRelative": "bin/x64/witcher3.exe",
+    "customFolders": []
+  },
+  "install": {
+    "files": [
+      {
+        "source": "content/**/*",
+        "target": "{gamePath}/content",
+        "backupOriginal": true,
+        "overwrite": true
+      },
+      {
+        "source": "bin/x64/dlc/**/*.pak",
+        "target": "{gamePath}/bin/x64/dlc",
+        "backupOriginal": true
+      }
+    ],
+    "preInstall": [
+      {
+        "type": "kill_process",
+        "processNames": ["witcher3.exe", "steam.exe"]
+      }
+    ],
+    "postInstall": [
+      {
+        "type": "verify",
+        "checkFiles": ["{gamePath}/content/lang_vo_pl.csv"]
+      }
+    ],
+    "notes": "Tắt Steam overlay trước khi cài để tránh xung đột file"
+  },
+  "uninstall": {
+    "restoreBackup": true,
+    "removeAddedFiles": []
+  },
+  "stats": {
+    "downloads": 15420,
+    "activeInstalls": 8932,
+    "averageRating": 4.7,
+    "ratingCount": 342
+  }
+}

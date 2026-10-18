@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-18T12:00:00Z",
+  "games": [
+    {
+      "id": "example-game-1",
+      "title": "Tên game mẫu 1",
+      "version": "1.0.0",
+      "size_bytes": 1048576,
+      "manifest_url": "https://github.com/YOUR_USERNAME/viethoagame-manager/releases/latest/download/example-game-1.json",
+      "download_url": "https://github.com/YOUR_USERNAME/viethoagame-manager/releases/latest/download/example-game-1.zip",
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ]
+}
