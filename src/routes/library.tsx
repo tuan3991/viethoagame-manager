@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { Search, Filter } from "lucide-react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { Search, Filter, Sparkles, CheckCircle2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { GameCard } from "@/components/GameCard";
 import { api } from "@/lib/api";
 import { useAppStore } from "@/lib/store";
-import type { GameManifest, LocalGame } from "@/types";
+import type { GameManifest, LocalGame, AutoSetupResult } from "@/types";
 
 export function Library() {
   const filter = useAppStore((s) => s.filter);
   const setFilter = useAppStore((s) => s.setFilter);
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
+  const queryClient = useQueryClient();
+  const [autoSetupDone, setAutoSetupDone] = useState(false);
+  const [autoSetupResult, setAutoSetupResult] = useState<AutoSetupResult | null>(null);
+  const [autoSetupRunning, setAutoSetupRunning] = useState(false);
 
   const { data: manifest } = useQuery({
     queryKey: ["manifest"],
@@ -26,6 +31,46 @@ export function Library() {
   useEffect(() => {
     api.getFavorites().then((f) => setFavorites(new Set(f)));
   }, []);
+
+  // Auto-detect on first mount: nếu localGames trống → gọi auto_setup_games
+  useEffect(() => {
+    if (autoSetupDone || autoSetupRunning) return;
+    if (localGames === undefined) return; // chưa load xong
+
+    // Nếu chưa có game nào detect được → chạy auto-setup
+    const hasAnyPath = localGames.some((g) => g.install_path);
+    if (hasAnyPath) {
+      setAutoSetupDone(true);
+      return;
+    }
+
+    setAutoSetupRunning(true);
+    api.autoSetupGames()
+      .then((res) => {
+        setAutoSetupResult(res);
+        setAutoSetupDone(true);
+        queryClient.invalidateQueries({ queryKey: ["library"] });
+      })
+      .catch((err) => {
+        console.error("Auto-setup failed:", err);
+        setAutoSetupDone(true);
+      })
+      .finally(() => setAutoSetupRunning(false));
+  }, [localGames, autoSetupDone, autoSetupRunning, queryClient]);
+
+  // Cho phép user re-run auto-setup manually
+  const runAutoSetup = async () => {
+    setAutoSetupRunning(true);
+    try {
+      const res = await api.autoSetupGames();
+      setAutoSetupResult(res);
+      queryClient.invalidateQueries({ queryKey: ["library"] });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setAutoSetupRunning(false);
+    }
+  };
 
   // Fetch full game manifests in parallel
   const { data: gameManifests } = useQuery({
@@ -75,7 +120,51 @@ export function Library() {
             {filtered.length} / {gameManifests?.length ?? 0} game
           </p>
         </div>
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={runAutoSetup}
+          disabled={autoSetupRunning}
+          className="gap-2"
+        >
+          <Sparkles className={`h-4 w-4 ${autoSetupRunning ? "animate-pulse" : ""}`} />
+          {autoSetupRunning ? "Đang quét..." : "Quét tự động"}
+        </Button>
       </div>
+
+      {/* Auto-setup result banner */}
+      {autoSetupResult && (autoSetupResult.matched.length > 0 || autoSetupResult.skipped.length > 0) && (
+        <div className="mb-6 rounded-lg border bg-card p-4">
+          <div className="flex items-start gap-3">
+            <Sparkles className="h-5 w-5 text-primary mt-0.5" />
+            <div className="flex-1 space-y-2">
+              <div className="font-semibold">Kết quả quét tự động</div>
+              <div className="text-sm text-muted-foreground">
+                Quét {autoSetupResult.totalScanned} game trên máy (Steam/Epic/GOG).
+                Tự động nhận diện <span className="font-semibold text-foreground">{autoSetupResult.matched.length}</span> game.
+              </div>
+              {autoSetupResult.matched.length > 0 && (
+                <div className="flex flex-wrap gap-1.5">
+                  {autoSetupResult.matched.map((m) => (
+                    <span
+                      key={m.gameId}
+                      className="inline-flex items-center gap-1 rounded-full bg-emerald-500/15 px-2.5 py-0.5 text-xs text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
+                    >
+                      <CheckCircle2 className="h-3 w-3" />
+                      {m.name}
+                    </span>
+                  ))}
+                </div>
+              )}
+              {autoSetupResult.skipped.length > 0 && (
+                <div className="text-xs text-muted-foreground">
+                  Không tìm thấy: {autoSetupResult.skipped.map((s) => s.gameId).join(", ")}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Filter bar */}
       <div className="mb-6 flex items-center gap-2">

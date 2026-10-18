@@ -190,3 +190,24 @@ export interface UserRequest {
   requestedBy: string;
   createdAt: number;
 }
+
+export interface AutoSetupMatch {
+  gameId: string;
+  name: string;
+  installPath: string;
+  launcher: string;
+}
+
+export interface AutoSetupSkip {
+  gameId: string;
+  reason: string;
+}
+
+export interface AutoSetupResult {
+  /** Tổng số game đã cài trên máy (mọi launcher) */
+  totalScanned: number;
+  /** Game trong manifest đã match được */
+  matched: AutoSetupMatch[];
+  /** Game trong manifest chưa match được */
+  skipped: AutoSetupSkip[];
+}

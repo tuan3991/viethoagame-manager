@@ -2,7 +2,7 @@
 
 use crate::db::DbState;
 use crate::models::LocalGame;
-use anyhow::{anyhow, Context, Result};
+use anyhow::{Context, Result};
 use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 use tauri::State;
@@ -31,6 +31,15 @@ pub async fn scan_installed_games() -> Result<Vec<LocalGame>> {
 
     tracing::info!("Total detected games: {}", all.len());
     Ok(all.into_iter().map(|g| g.into()).collect())
+}
+
+/// Internal: scan toàn bộ launcher, trả về DetectedGame (giữ thông tin launcher/app_id)
+pub async fn scan_all_detected() -> Result<Vec<DetectedGame>> {
+    let mut all = Vec::new();
+    all.extend(scan_steam().unwrap_or_default());
+    all.extend(scan_epic().unwrap_or_default());
+    all.extend(scan_gog().unwrap_or_default());
+    Ok(all)
 }
 
 /// Detect đường dẫn game theo game_id + cách detect trong manifest
@@ -89,6 +98,146 @@ pub async fn set_custom_game_path(
         },
     )?;
     Ok(())
+}
+
+/// Tự động phát hiện và lưu đường dẫn cho tất cả game trong manifest.
+///
+/// Scan Steam, Epic, GOG một lần. Với mỗi game trong manifest, tìm
+/// appid tương ứng trong danh sách detected → lưu install_path vào DB.
+/// Trả về số game đã match thành công.
+pub async fn auto_setup_all_games(
+    db: State<'_, DbState>,
+) -> Result<AutoSetupResult> {
+    tracing::info!("Auto-setup: scanning all launchers...");
+    let detected = scan_all_detected().await?;
+    tracing::info!("Auto-setup: found {} installed games on disk", detected.len());
+
+    // Lấy root manifest để biết danh sách game + steam_appid
+    let root_manifest = crate::commands::drive::fetch_manifest(db.clone()).await?;
+    let mut matched = Vec::new();
+    let mut skipped = Vec::new();
+
+    for entry in &root_manifest.games {
+        // Lấy game manifest chi tiết để biết steam_app_id, epic_app_name, gog_app_id
+        let game_manifest = match crate::commands::drive::fetch_game_manifest(db.clone(), entry.id.clone()).await {
+            Ok(m) => m,
+            Err(e) => {
+                tracing::warn!("Auto-setup: cannot fetch game manifest for {}: {}", entry.id, e);
+                skipped.push(AutoSetupSkip {
+                    game_id: entry.id.clone(),
+                    reason: format!("Manifest lỗi: {}", e),
+                });
+                continue;
+            }
+        };
+
+        // Tìm detection logic
+        let mut found_path: Option<String> = None;
+        let mut found_launcher: Option<String> = None;
+
+        for launcher in &game_manifest.detect.launchers {
+            match launcher.as_str() {
+                "steam" => {
+                    if let Some(app_id) = &game_manifest.detect.steam_app_id {
+                        if let Some(g) = detected.iter().find(|d| {
+                            d.launcher == "steam" && d.app_id.as_deref() == Some(app_id.as_str())
+                        }) {
+                            found_path = Some(g.install_path.clone());
+                            found_launcher = Some("steam".into());
+                            break;
+                        }
+                    }
+                }
+                "epic" => {
+                    if let Some(app_name) = &game_manifest.detect.epic_app_name {
+                        if let Some(g) = detected.iter().find(|d| {
+                            d.launcher == "epic" && d.name.to_lowercase().contains(&app_name.to_lowercase())
+                        }) {
+                            found_path = Some(g.install_path.clone());
+                            found_launcher = Some("epic".into());
+                            break;
+                        }
+                    }
+                }
+                "gog" => {
+                    if let Some(app_id) = &game_manifest.detect.gog_app_id {
+                        if let Some(g) = detected.iter().find(|d| {
+                            d.launcher == "gog" && d.app_id.as_deref() == Some(app_id.as_str())
+                        }) {
+                            found_path = Some(g.install_path.clone());
+                            found_launcher = Some("gog".into());
+                            break;
+                        }
+                    }
+                }
+                _ => {}
+            }
+        }
+
+        if let Some(path) = found_path {
+            // Lưu vào DB
+            crate::db::upsert_game(
+                &db,
+                &LocalGame {
+                    id: entry.id.clone(),
+                    name: entry.name.clone(),
+                    version: String::new(),
+                    installed_version: None,
+                    install_path: Some(path.clone()),
+                    installed_at: None,
+                    last_checked: chrono::Utc::now().timestamp(),
+                    status: "detected".to_string(),
+                },
+            )?;
+            matched.push(AutoSetupMatch {
+                game_id: entry.id.clone(),
+                name: entry.name.clone(),
+                install_path: path,
+                launcher: found_launcher.unwrap_or_default(),
+            });
+        } else {
+            skipped.push(AutoSetupSkip {
+                game_id: entry.id.clone(),
+                reason: "Không tìm thấy trên Steam/Epic/GOG".into(),
+            });
+        }
+    }
+
+    tracing::info!(
+        "Auto-setup done: {} matched, {} skipped",
+        matched.len(),
+        skipped.len()
+    );
+
+    Ok(AutoSetupResult {
+        total_scanned: detected.len(),
+        matched,
+        skipped,
+    })
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct AutoSetupMatch {
+    pub game_id: String,
+    pub name: String,
+    pub install_path: String,
+    pub launcher: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct AutoSetupSkip {
+    pub game_id: String,
+    pub reason: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct AutoSetupResult {
+    /// Tổng số game đã cài trên máy (mọi launcher)
+    pub total_scanned: usize,
+    /// Game trong manifest đã match được
+    pub matched: Vec<AutoSetupMatch>,
+    /// Game trong manifest chưa match được
+    pub skipped: Vec<AutoSetupSkip>,
 }
 
 // ============================================

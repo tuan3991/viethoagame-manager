@@ -11,6 +11,7 @@ import type {
   BugReport,
   Comment,
   UserRequest,
+  AutoSetupResult,
 } from "@/types";
 
 /**
@@ -29,6 +30,7 @@ export const api = {
     invoke<string | null>("detect_game_path", { gameId }),
   setCustomGamePath: (gameId: string, path: string) =>
     invoke<void>("set_custom_game_path", { gameId, path }),
+  autoSetupGames: () => invoke<AutoSetupResult>("auto_setup_games"),
 
   // === Library local ===
   getLibrary: () => invoke<LocalGame[]>("get_library"),

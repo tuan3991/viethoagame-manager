@@ -65,6 +65,17 @@ async fn set_custom_game_path(
         .map_err(|e| e.to_string())
 }
 
+/// Tự động quét toàn bộ launcher (Steam/Epic/GOG) và tự điền
+/// install_path cho mọi game trong manifest. Trả về kết quả chi tiết.
+#[tauri::command]
+async fn auto_setup_games(
+    db: tauri::State<'_, db::DbState>,
+) -> Result<scanner::AutoSetupResult, String> {
+    scanner::auto_setup_all_games(db)
+        .await
+        .map_err(|e| e.to_string())
+}
+
 // ----- Library -----
 #[tauri::command]
 async fn get_library(db: tauri::State<'_, db::DbState>) -> Result<Vec<LocalGame>, String> {
@@ -332,6 +343,7 @@ pub fn run() {
             scan_installed_games,
             detect_game_path,
             set_custom_game_path,
+            auto_setup_games,
             // Library
             get_library,
             get_game_local,
