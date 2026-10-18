@@ -15,19 +15,14 @@ use tauri::{AppHandle, Emitter, State};
 
 /// URL mặc định của manifest (GitHub Releases - sẽ được override bằng setting)
 ///
-/// Để dùng:
-/// 1. Tạo GitHub repo: viethoagame-manager (public)
-/// 2. Tạo Release với tag: v1
-/// 3. Upload file `manifest.json` vào Release assets
-/// 4. Thay YOUR_USERNAME bên dưới thành GitHub username của bạn
-///
-/// URL sẽ là:
-///   https://github.com/YOUR_USERNAME/viethoagame-manager/releases/latest/download/manifest.json
+/// Repo: https://github.com/tuan3991/viethoagame-manager
+/// Release: v2 (Latest, tự động tăng khi có bản mới)
 ///
 /// GitHub Releases có ưu điểm: không giới hạn size, không bị virus warning,
 /// không cần auth, hỗ trợ atomic updates (CDN cached).
+/// Cập nhật manifest chỉ cần tạo release mới (v3, v4...) và upload lại file.
 pub const DEFAULT_MANIFEST_URL: &str =
-    "https://github.com/YOUR_USERNAME/viethoagame-manager/releases/latest/download/manifest.json";
+    "https://github.com/tuan3991/viethoagame-manager/releases/latest/download/manifest.json";
 
 /// Lấy URL manifest hiện tại từ settings
 async fn get_manifest_url(db: &State<'_, DbState>) -> Result<String> {
