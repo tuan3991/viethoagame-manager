@@ -1,0 +1,88 @@
+{
+  "id": "toem",
+  "name": "TOEM - A Photo Adventure",
+  "short_description": "A hand-drawn adventure about a young photographer on a quest to take the perfect picture.",
+  "long_description": "Make friends, complete quests, solve puzzles, and take the perfect picture in this hand-drawn adventure game set in a magical world. TOEM is all about exploring a Nordic-inspired landscape, meeting quirky characters, and capturing memories through photography.",
+  "developer": "Something We Made",
+  "publisher": "Something We Made",
+  "release_date": "2021-09-17",
+  "genres": [
+    "Adventure",
+    "Casual",
+    "Indie"
+  ],
+  "tags": [
+    "Single-player",
+    "Photo",
+    "Relaxing",
+    "Hand-drawn"
+  ],
+  "cover_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/906150/header.jpg",
+  "screenshots": [],
+  "video_url": null,
+  "system_requirements": {
+    "min": "Windows 7+",
+    "rec": "Windows 10+"
+  },
+  "supported_engines": [
+    "toem"
+  ],
+  "latest_version": "1.0",
+  "versions": [
+    {
+      "version": "1.0",
+      "released_at": "2026-10-18T08:00:00Z",
+      "size_bytes": 3368535,
+      "download_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/toem/vi.zip",
+      "checksum": "sha256:fb3cf3ef8dccca7b461602326964fada2dc92b4b4866d97f5f6edc3d9717623b",
+      "changelog": "Initial Vietnamese translation",
+      "is_beta": false,
+      "is_broken": false
+    }
+  ],
+  "detect": {
+    "launchers": [
+      "steam"
+    ],
+    "steam_app_id": "906150",
+    "epic_app_name": null,
+    "gog_app_id": null,
+    "executable_relative": null,
+    "custom_folders": null
+  },
+  "install": {
+    "files": [
+      {
+        "source": "TOEM_Data/resources.assets",
+        "target": "TOEM_Data/resources.assets",
+        "backup_original": true,
+        "overwrite": true
+      },
+      {
+        "source": "toem_vietnamese_font.ttf",
+        "target": "toem_vietnamese_font.ttf",
+        "backup_original": false,
+        "overwrite": true
+      },
+      {
+        "source": "toem_vi_master.json",
+        "target": "toem_vi_master.json",
+        "backup_original": false,
+        "overwrite": true
+      }
+    ],
+    "pre_install": null,
+    "post_install": null,
+    "notes": "Chay Cai_Dat_Viet_Hoa.bat de cai dat tu dong."
+  },
+  "uninstall": {
+    "restore_backup": true,
+    "remove_added_files": null
+  },
+  "stats": {
+    "downloads": 0,
+    "active_installs": 0,
+    "average_rating": 0.0,
+    "rating_count": 0
+  }
+}

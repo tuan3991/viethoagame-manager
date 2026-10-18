@@ -1,0 +1,75 @@
+{
+  "id": "tails-noir",
+  "name": "Tails Noir",
+  "short_description": "Viet hoa Tails Noir - phien ban noir cua Backbone.",
+  "long_description": "Ban dich tieng Viet cho Tails Noir (phien ban detective/noir), Unreal Engine .pak file.",
+  "developer": "EggNut",
+  "publisher": "EggNut",
+  "release_date": "2023-07-12",
+  "genres": [
+    "Adventure",
+    "Indie",
+    "Narrative"
+  ],
+  "tags": [
+    "Single-player",
+    "Story Rich",
+    "Detective"
+  ],
+  "cover_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2263240/header.jpg",
+  "screenshots": [],
+  "video_url": null,
+  "system_requirements": {
+    "min": "Windows 7+",
+    "rec": "Windows 10+"
+  },
+  "supported_engines": [
+    "tails-noir"
+  ],
+  "latest_version": "1.0",
+  "versions": [
+    {
+      "version": "1.0",
+      "released_at": "2026-10-18T08:00:00Z",
+      "size_bytes": 1244708,
+      "download_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/tails-noir/vi.zip",
+      "checksum": "sha256:f07c7de689e94eaa08a36f17ac307f8d05ca0a7925424190ddc20cc41018cfd8",
+      "changelog": "Initial Vietnamese translation",
+      "is_beta": false,
+      "is_broken": false
+    }
+  ],
+  "detect": {
+    "launchers": [
+      "steam"
+    ],
+    "steam_app_id": "2263240",
+    "epic_app_name": null,
+    "gog_app_id": null,
+    "executable_relative": null,
+    "custom_folders": null
+  },
+  "install": {
+    "files": [
+      {
+        "source": "Detective-WindowsNoEditor_Vietnamese_P.pak",
+        "target": "Detective/Content/Paks/Detective-WindowsNoEditor_Vietnamese_P.pak",
+        "backup_original": false,
+        "overwrite": true
+      }
+    ],
+    "pre_install": null,
+    "post_install": null,
+    "notes": "Chay Cai_Dat_Viet_Hoa.bat de cai dat tu dong."
+  },
+  "uninstall": {
+    "restore_backup": true,
+    "remove_added_files": null
+  },
+  "stats": {
+    "downloads": 0,
+    "active_installs": 0,
+    "average_rating": 0.0,
+    "rating_count": 0
+  }
+}

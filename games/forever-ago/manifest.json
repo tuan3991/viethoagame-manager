@@ -1,0 +1,75 @@
+{
+  "id": "forever-ago",
+  "name": "Forever Ago",
+  "short_description": "Viet hoa Forever Ago - phieu luu tuong thuat co chieu sau.",
+  "long_description": "Ban dich tieng Viet cho Forever Ago, Unity engine voi file assets da sua va font patcher.",
+  "developer": "Skullfish Studios",
+  "publisher": "Skullfish Studios",
+  "release_date": "2021-12-03",
+  "genres": [
+    "Adventure",
+    "Indie",
+    "Visual Novel"
+  ],
+  "tags": [
+    "Single-player",
+    "Story Rich",
+    "Atmospheric"
+  ],
+  "cover_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1720080/header.jpg",
+  "screenshots": [],
+  "video_url": null,
+  "system_requirements": {
+    "min": "Windows 7+",
+    "rec": "Windows 10+"
+  },
+  "supported_engines": [
+    "forever-ago"
+  ],
+  "latest_version": "1.0",
+  "versions": [
+    {
+      "version": "1.0",
+      "released_at": "2026-10-18T08:00:00Z",
+      "size_bytes": 35191077,
+      "download_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/forever-ago/vi.zip",
+      "checksum": "sha256:fb02cf7e5fb6ff4937e5a77b61f62f416da1caebe2c3a6a2b91fbf88ce69cc9a",
+      "changelog": "Initial Vietnamese translation",
+      "is_beta": false,
+      "is_broken": false
+    }
+  ],
+  "detect": {
+    "launchers": [
+      "steam"
+    ],
+    "steam_app_id": "1720080",
+    "epic_app_name": null,
+    "gog_app_id": null,
+    "executable_relative": null,
+    "custom_folders": null
+  },
+  "install": {
+    "files": [
+      {
+        "source": "sharedassets0.assets",
+        "target": "Forever Ago_Data/sharedassets0.assets",
+        "backup_original": true,
+        "overwrite": true
+      }
+    ],
+    "pre_install": null,
+    "post_install": null,
+    "notes": "Chay Cai_Dat_Viet_Hoa.bat de cai dat tu dong."
+  },
+  "uninstall": {
+    "restore_backup": true,
+    "remove_added_files": null
+  },
+  "stats": {
+    "downloads": 0,
+    "active_installs": 0,
+    "average_rating": 0.0,
+    "rating_count": 0
+  }
+}

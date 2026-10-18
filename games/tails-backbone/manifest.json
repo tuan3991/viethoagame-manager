@@ -1,0 +1,75 @@
+{
+  "id": "tails-backbone",
+  "name": "Tails: The Backbone Preludes",
+  "short_description": "Viet hoa Tails: The Backbone Preludes - phan tien truyen cua Backbone.",
+  "long_description": "Ban dich tieng Viet cho Tails: The Backbone Preludes, duoi dang Unreal Engine .pak file. Ho tro choi ngay sau khi copy vao thu muc game.",
+  "developer": "EggNut",
+  "publisher": "EggNut",
+  "release_date": "2023-06-15",
+  "genres": [
+    "Adventure",
+    "Indie",
+    "Narrative"
+  ],
+  "tags": [
+    "Single-player",
+    "Story Rich",
+    "Choices Matter"
+  ],
+  "cover_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2120070/header.jpg",
+  "screenshots": [],
+  "video_url": null,
+  "system_requirements": {
+    "min": "Windows 7+",
+    "rec": "Windows 10+"
+  },
+  "supported_engines": [
+    "tails-backbone"
+  ],
+  "latest_version": "1.0",
+  "versions": [
+    {
+      "version": "1.0",
+      "released_at": "2026-10-18T08:00:00Z",
+      "size_bytes": 2778943,
+      "download_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/tails-backbone/vi.zip",
+      "checksum": "sha256:3a54103156e284784eb3b191698de39c353df1ba46985d2b4845ed3c334be945",
+      "changelog": "Initial Vietnamese translation",
+      "is_beta": false,
+      "is_broken": false
+    }
+  ],
+  "detect": {
+    "launchers": [
+      "steam"
+    ],
+    "steam_app_id": "2120070",
+    "epic_app_name": null,
+    "gog_app_id": null,
+    "executable_relative": null,
+    "custom_folders": null
+  },
+  "install": {
+    "files": [
+      {
+        "source": "BackboneStories-Windows_Vietnamese_P.pak",
+        "target": "BackboneStories/Content/Paks/BackboneStories-Windows_Vietnamese_P.pak",
+        "backup_original": false,
+        "overwrite": true
+      }
+    ],
+    "pre_install": null,
+    "post_install": null,
+    "notes": "Chay Cai_Dat_Viet_Hoa.bat de cai dat tu dong."
+  },
+  "uninstall": {
+    "restore_backup": true,
+    "remove_added_files": null
+  },
+  "stats": {
+    "downloads": 0,
+    "active_installs": 0,
+    "average_rating": 0.0,
+    "rating_count": 0
+  }
+}

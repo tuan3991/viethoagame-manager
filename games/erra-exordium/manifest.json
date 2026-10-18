@@ -1,0 +1,75 @@
+{
+  "id": "erra-exordium",
+  "name": "Erra: Exordium",
+  "short_description": "Viet hoa Erra: Exordium - shoot-em-up mech hanh dong.",
+  "long_description": "Ban dich tieng Viet cho Erra: Exordium, Unity engine sua file .assets bundle.",
+  "developer": "Fair Pixel",
+  "publisher": "Fair Pixel",
+  "release_date": "2016-09-05",
+  "genres": [
+    "Action",
+    "Indie",
+    "Shoot Em Up"
+  ],
+  "tags": [
+    "Single-player",
+    "Mechs",
+    "Side-scrolling"
+  ],
+  "cover_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/437390/header.jpg",
+  "screenshots": [],
+  "video_url": null,
+  "system_requirements": {
+    "min": "Windows 7+",
+    "rec": "Windows 10+"
+  },
+  "supported_engines": [
+    "erra-exordium"
+  ],
+  "latest_version": "1.0",
+  "versions": [
+    {
+      "version": "1.0",
+      "released_at": "2026-10-18T08:00:00Z",
+      "size_bytes": 69734191,
+      "download_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/erra-exordium/vi.zip",
+      "checksum": "sha256:a442aaf7c4010dc364563586fd5d2679022356949f8ce37cbc2d69a51bbb34f1",
+      "changelog": "Initial Vietnamese translation",
+      "is_beta": false,
+      "is_broken": false
+    }
+  ],
+  "detect": {
+    "launchers": [
+      "steam"
+    ],
+    "steam_app_id": "437390",
+    "epic_app_name": null,
+    "gog_app_id": null,
+    "executable_relative": null,
+    "custom_folders": null
+  },
+  "install": {
+    "files": [
+      {
+        "source": "ErraExordium_Data/sharedassets1.assets",
+        "target": "ErraExordium_Data/sharedassets1.assets",
+        "backup_original": true,
+        "overwrite": true
+      }
+    ],
+    "pre_install": null,
+    "post_install": null,
+    "notes": "Chay Cai_Dat_Viet_Hoa.bat de cai dat tu dong."
+  },
+  "uninstall": {
+    "restore_backup": true,
+    "remove_added_files": null
+  },
+  "stats": {
+    "downloads": 0,
+    "active_installs": 0,
+    "average_rating": 0.0,
+    "rating_count": 0
+  }
+}

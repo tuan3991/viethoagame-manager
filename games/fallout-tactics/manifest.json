@@ -1,0 +1,79 @@
+{
+  "id": "fallout-tactics",
+  "name": "Fallout Tactics - Brotherhood of Steel",
+  "short_description": "Viet hoa Fallout Tactics - Brotherhood of Steel (game chien thuat RPG co dien).",
+  "long_description": "Ban viet hoa day du cho Fallout Tactics - Brotherhood of Steel, bao gom tat ca file locale (game, gui, missions) va font tieng Viet.",
+  "developer": "14 Degrees East",
+  "publisher": "Interplay",
+  "release_date": "2001-09-25",
+  "genres": [
+    "RPG",
+    "Tactical",
+    "Strategy"
+  ],
+  "tags": [
+    "Single-player",
+    "Post-apocalyptic",
+    "Turn-based"
+  ],
+  "cover_image": "https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/38400/header.jpg",
+  "screenshots": [],
+  "video_url": null,
+  "system_requirements": {
+    "min": "Windows 7+",
+    "rec": "Windows 10+"
+  },
+  "supported_engines": [
+    "fallout-tactics"
+  ],
+  "latest_version": "1.0",
+  "versions": [
+    {
+      "version": "1.0",
+      "released_at": "2026-10-18T08:00:00Z",
+      "size_bytes": 8415967,
+      "download_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/fallout-tactics/vi.zip",
+      "checksum": "sha256:606de9aa86c2325f2160d54ab547159f759b57d9f282f6c3414c88c1254bb56a",
+      "changelog": "Initial Vietnamese translation",
+      "is_beta": false,
+      "is_broken": false
+    }
+  ],
+  "detect": {
+    "launchers": [],
+    "steam_app_id": null,
+    "epic_app_name": null,
+    "gog_app_id": null,
+    "executable_relative": null,
+    "custom_folders": null
+  },
+  "install": {
+    "files": [
+      {
+        "source": "core",
+        "target": "core",
+        "backup_original": true,
+        "overwrite": true
+      },
+      {
+        "source": "locale_utf8",
+        "target": "locale_utf8",
+        "backup_original": false,
+        "overwrite": true
+      }
+    ],
+    "pre_install": null,
+    "post_install": null,
+    "notes": "Chay Cai_Dat_Viet_Hoa.bat de cai dat tu dong."
+  },
+  "uninstall": {
+    "restore_backup": true,
+    "remove_added_files": null
+  },
+  "stats": {
+    "downloads": 0,
+    "active_installs": 0,
+    "average_rating": 0.0,
+    "rating_count": 0
+  }
+}

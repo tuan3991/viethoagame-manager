@@ -1,0 +1,51 @@
+{
+  "version": 2,
+  "last_updated": "2026-10-18T08:00:00Z",
+  "games": [
+    {
+      "id": "toem",
+      "name": "TOEM - A Photo Adventure",
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/toem/manifest.json"
+    },
+    {
+      "id": "fallout-tactics",
+      "name": "Fallout Tactics - Brotherhood of Steel",
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/fallout-tactics/manifest.json"
+    },
+    {
+      "id": "hotline-miami",
+      "name": "Hotline Miami",
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/hotline-miami/manifest.json"
+    },
+    {
+      "id": "risk-of-rain-2",
+      "name": "Risk of Rain 2",
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/risk-of-rain-2/manifest.json"
+    },
+    {
+      "id": "tails-backbone",
+      "name": "Tails: The Backbone Preludes",
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/tails-backbone/manifest.json"
+    },
+    {
+      "id": "tails-noir",
+      "name": "Tails Noir",
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/tails-noir/manifest.json"
+    },
+    {
+      "id": "ravenous-devils",
+      "name": "Ravenous Devils",
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/ravenous-devils/manifest.json"
+    },
+    {
+      "id": "erra-exordium",
+      "name": "Erra: Exordium",
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/erra-exordium/manifest.json"
+    },
+    {
+      "id": "forever-ago",
+      "name": "Forever Ago",
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/forever-ago/manifest.json"
+    }
+  ]
+}

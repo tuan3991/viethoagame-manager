@@ -1,0 +1,88 @@
+{
+  "id": "risk-of-rain-2",
+  "name": "Risk of Rain 2",
+  "short_description": "Ban Viet hoa day du cho Risk of Rain 2 thong qua BepInEx plugin.",
+  "long_description": "Plugin BepInEx tuy chinh cung cap ban dich tieng Viet day du cho toan bo UI, items, achievements, dialogue va DLC content cua Risk of Rain 2.",
+  "developer": "Hopoo Games",
+  "publisher": "Gearbox Publishing",
+  "release_date": "2020-08-11",
+  "genres": [
+    "Action",
+    "Indie",
+    "Roguelike",
+    "Third-person shooter"
+  ],
+  "tags": [
+    "Single-player",
+    "Co-op",
+    "Procedural Generation"
+  ],
+  "cover_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632360/header.jpg",
+  "screenshots": [],
+  "video_url": null,
+  "system_requirements": {
+    "min": "Windows 7+",
+    "rec": "Windows 10+"
+  },
+  "supported_engines": [
+    "risk-of-rain-2"
+  ],
+  "latest_version": "1.0",
+  "versions": [
+    {
+      "version": "1.0",
+      "released_at": "2026-10-18T08:00:00Z",
+      "size_bytes": 2131748,
+      "download_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/risk-of-rain-2/vi.zip",
+      "checksum": "sha256:b2c2f78c9796ae9f275746c6eca297819f767f1bff26ab82f09eb07a184096a2",
+      "changelog": "Initial Vietnamese translation",
+      "is_beta": false,
+      "is_broken": false
+    }
+  ],
+  "detect": {
+    "launchers": [
+      "steam"
+    ],
+    "steam_app_id": "632360",
+    "epic_app_name": null,
+    "gog_app_id": null,
+    "executable_relative": null,
+    "custom_folders": null
+  },
+  "install": {
+    "files": [
+      {
+        "source": "BepInEx",
+        "target": "BepInEx",
+        "backup_original": true,
+        "overwrite": true
+      },
+      {
+        "source": "Risk of Rain 2_Data/StreamingAssets/Language/vi",
+        "target": "Risk of Rain 2_Data/StreamingAssets/Language/vi",
+        "backup_original": false,
+        "overwrite": true
+      },
+      {
+        "source": "doorstop_config.ini",
+        "target": "doorstop_config.ini",
+        "backup_original": false,
+        "overwrite": true
+      }
+    ],
+    "pre_install": null,
+    "post_install": null,
+    "notes": "Chay Cai_Dat_Viet_Hoa.bat de cai dat tu dong."
+  },
+  "uninstall": {
+    "restore_backup": true,
+    "remove_added_files": null
+  },
+  "stats": {
+    "downloads": 0,
+    "active_installs": 0,
+    "average_rating": 0.0,
+    "rating_count": 0
+  }
+}

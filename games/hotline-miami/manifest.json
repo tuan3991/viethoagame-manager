@@ -1,0 +1,88 @@
+{
+  "id": "hotline-miami",
+  "name": "Hotline Miami",
+  "short_description": "Ban dich song ngu Anh-Viet cho Hotline Miami.",
+  "long_description": "Hotline Miami la game ban sung goc nhin tu tren xuong voi phong cach retro va am nhac synthwave. Ban viet hoa bao gom file dich song ngu EN-VI va ban cap nhat localization.",
+  "developer": "Dennaton Games",
+  "publisher": "Devolver Digital",
+  "release_date": "2012-10-23",
+  "genres": [
+    "Action",
+    "Indie",
+    "Top-down shooter"
+  ],
+  "tags": [
+    "Single-player",
+    "Retro",
+    "Violent",
+    "Great Soundtrack"
+  ],
+  "cover_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/219150/header.jpg",
+  "screenshots": [],
+  "video_url": null,
+  "system_requirements": {
+    "min": "Windows 7+",
+    "rec": "Windows 10+"
+  },
+  "supported_engines": [
+    "hotline-miami"
+  ],
+  "latest_version": "1.0",
+  "versions": [
+    {
+      "version": "1.0",
+      "released_at": "2026-10-18T08:00:00Z",
+      "size_bytes": 362760249,
+      "download_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/hotline-miami/vi.zip",
+      "checksum": "sha256:e7e22b4dafbbc9fa20eb17a831b8d5be3027c91025995375f901bc3030c1e0b6",
+      "changelog": "Initial Vietnamese translation",
+      "is_beta": false,
+      "is_broken": false
+    }
+  ],
+  "detect": {
+    "launchers": [
+      "steam"
+    ],
+    "steam_app_id": "219150",
+    "epic_app_name": null,
+    "gog_app_id": null,
+    "executable_relative": null,
+    "custom_folders": null
+  },
+  "install": {
+    "files": [
+      {
+        "source": "HotlineMiami_GL.wad",
+        "target": "HotlineMiami_GL.wad",
+        "backup_original": true,
+        "overwrite": true
+      },
+      {
+        "source": "hotline_localization.bin",
+        "target": "hotline_localization.bin",
+        "backup_original": false,
+        "overwrite": true
+      },
+      {
+        "source": "hotline_localization_utf32.bin",
+        "target": "hotline_localization_utf32.bin",
+        "backup_original": false,
+        "overwrite": true
+      }
+    ],
+    "pre_install": null,
+    "post_install": null,
+    "notes": "Chay Cai_Dat_Viet_Hoa.bat de cai dat tu dong."
+  },
+  "uninstall": {
+    "restore_backup": true,
+    "remove_added_files": null
+  },
+  "stats": {
+    "downloads": 0,
+    "active_installs": 0,
+    "average_rating": 0.0,
+    "rating_count": 0
+  }
+}

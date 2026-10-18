@@ -1,0 +1,82 @@
+{
+  "id": "ravenous-devils",
+  "name": "Ravenous Devils",
+  "short_description": "Viet hoa Ravenous Devils - quan ly khach san dam mau.",
+  "long_description": "Ban dich tieng Viet cho Ravenous Devils, Unreal Engine .pak + file locres cho menu, dialogue, items.",
+  "developer": "Bad Vices Games",
+  "publisher": "Bad Vices Games",
+  "release_date": "2022-04-28",
+  "genres": [
+    "Action",
+    "Indie",
+    "Simulation"
+  ],
+  "tags": [
+    "Single-player",
+    "Cooking",
+    "Management",
+    "Violent"
+  ],
+  "cover_image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1735530/header.jpg",
+  "screenshots": [],
+  "video_url": null,
+  "system_requirements": {
+    "min": "Windows 7+",
+    "rec": "Windows 10+"
+  },
+  "supported_engines": [
+    "ravenous-devils"
+  ],
+  "latest_version": "1.0",
+  "versions": [
+    {
+      "version": "1.0",
+      "released_at": "2026-10-18T08:00:00Z",
+      "size_bytes": 1376092,
+      "download_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/ravenous-devils/vi.zip",
+      "checksum": "sha256:73d6cdb37e89848b7f20686ea670cd8c68bd43779262f21c9d9bb0f71f2d0081",
+      "changelog": "Initial Vietnamese translation",
+      "is_beta": false,
+      "is_broken": false
+    }
+  ],
+  "detect": {
+    "launchers": [
+      "steam"
+    ],
+    "steam_app_id": "1735530",
+    "epic_app_name": null,
+    "gog_app_id": null,
+    "executable_relative": null,
+    "custom_folders": null
+  },
+  "install": {
+    "files": [
+      {
+        "source": "Ravenous_Devils_Vietnamese_P.pak",
+        "target": "Ravenous_Devils/Content/Paks/~mods/Ravenous_Devils_Vietnamese_P.pak",
+        "backup_original": false,
+        "overwrite": true
+      },
+      {
+        "source": "Game.locres",
+        "target": "Ravenous_Devils/Content/Localization/Game/Game.locres",
+        "backup_original": true,
+        "overwrite": true
+      }
+    ],
+    "pre_install": null,
+    "post_install": null,
+    "notes": "Chay Cai_Dat_Viet_Hoa.bat de cai dat tu dong."
+  },
+  "uninstall": {
+    "restore_backup": true,
+    "remove_added_files": null
+  },
+  "stats": {
+    "downloads": 0,
+    "active_installs": 0,
+    "average_rating": 0.0,
+    "rating_count": 0
+  }
+}
