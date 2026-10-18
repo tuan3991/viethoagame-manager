@@ -119,6 +119,8 @@ pub async fn admin_upsert_game(
             id: game_id.clone(),
             name,
             manifest_url,
+            cover_image: None,
+            avatar_image: None,
         });
     }
     manifest.last_updated = now;
