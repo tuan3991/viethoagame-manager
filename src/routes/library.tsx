@@ -43,6 +43,11 @@ export function Library() {
     (localGames ?? []).map((g) => [g.id, g])
   );
 
+  // Lookup entry cover/avatar by id
+  const entryById = new Map<string, { coverImage?: string; avatarImage?: string }>(
+    (manifest?.games ?? []).map((g) => [g.id, { coverImage: g.coverImage, avatarImage: g.avatarImage }])
+  );
+
   const filtered = (gameManifests ?? []).filter((game) => {
     if (filter.search && !game.name.toLowerCase().includes(filter.search.toLowerCase())) {
       return false;
@@ -119,6 +124,8 @@ export function Library() {
               local={localById.get(game.id)}
               favorite={favorites.has(game.id)}
               onFavorite={() => handleFavorite(game.id)}
+              entryCover={entryById.get(game.id)?.coverImage}
+              entryAvatar={entryById.get(game.id)?.avatarImage}
             />
           ))}
         </div>

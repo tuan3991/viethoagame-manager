@@ -14,6 +14,12 @@ pub struct ManifestEntry {
     pub id: String,
     pub name: String,
     pub manifest_url: String,
+    /// Ảnh bìa hiển thị ở card (3:2 banner), optional
+    #[serde(default)]
+    pub cover_image: Option<String>,
+    /// Ảnh đại diện vuông/icon (1:1), optional
+    #[serde(default)]
+    pub avatar_image: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

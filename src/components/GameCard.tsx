@@ -12,9 +12,13 @@ interface GameCardProps {
   local?: LocalGame;
   favorite?: boolean;
   onFavorite?: () => void;
+  /** Ảnh bìa từ root manifest entry (ưu tiên hơn manifest.coverImage) */
+  entryCover?: string;
+  /** Ảnh đại diện từ root manifest entry */
+  entryAvatar?: string;
 }
 
-export function GameCard({ manifest, local, favorite, onFavorite }: GameCardProps) {
+export function GameCard({ manifest, local, favorite, onFavorite, entryCover, entryAvatar }: GameCardProps) {
   const status = local?.status ?? "not_installed";
   const latestVersion = manifest.versions.find((v) => v.version === manifest.latestVersion);
 
@@ -27,16 +31,27 @@ export function GameCard({ manifest, local, favorite, onFavorite }: GameCardProp
 
   const StatusIcon = statusConfig[status].icon;
 
+  const coverSrc = entryCover ?? manifest.coverImage;
+  const avatarSrc = entryAvatar;
+
   return (
     <Card className="group overflow-hidden transition-all hover:shadow-lg">
       <Link to={`/game/${manifest.id}`} className="block">
         <div className="relative aspect-[3/2] bg-muted">
-          {manifest.coverImage ? (
+          {coverSrc ? (
             <img
-              src={manifest.coverImage}
+              src={coverSrc}
               alt={manifest.name}
               className="h-full w-full object-cover"
               loading="lazy"
+              onError={(e) => {
+                // Fallback to per-game cover, then placeholder
+                if (coverSrc !== manifest.coverImage && manifest.coverImage) {
+                                  (e.currentTarget as HTMLImageElement).src = manifest.coverImage;
+                } else {
+                                  (e.currentTarget as HTMLImageElement).style.display = "none";
+                                }
+              }}
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center">
@@ -44,6 +59,17 @@ export function GameCard({ manifest, local, favorite, onFavorite }: GameCardProp
                 {manifest.name.charAt(0)}
               </span>
             </div>
+          )}
+          {avatarSrc && (
+            <img
+              src={avatarSrc}
+              alt=""
+              className="absolute bottom-2 right-2 h-12 w-12 rounded-md border-2 border-background object-cover shadow"
+              loading="lazy"
+              onError={(e) => {
+                              (e.currentTarget as HTMLImageElement).style.display = "none";
+                            }}
+            />
           )}
           {status === "update_available" && (
             <Badge variant="destructive" className="absolute right-2 top-2">

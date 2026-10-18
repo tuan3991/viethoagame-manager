@@ -12,6 +12,10 @@ export interface ManifestEntry {
   id: string;
   name: string;
   manifestUrl: string;
+  /** Ảnh bìa card (3:2 banner) - optional, fallback tên game */
+  coverImage?: string;
+  /** Ảnh đại diện vuông/icon (1:1) - optional */
+  avatarImage?: string;
 }
 
 export interface GameManifest {

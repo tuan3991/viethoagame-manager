@@ -1,51 +1,69 @@
 {
-  "version": 2,
-  "last_updated": "2026-10-18T08:00:00Z",
+  "version": 3,
+  "last_updated": "2026-10-18T10:00:00Z",
   "games": [
     {
       "id": "toem",
       "name": "TOEM - A Photo Adventure",
-      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/toem/manifest.json"
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/toem/manifest.json",
+      "cover_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1307580/library_hero.jpg",
+      "avatar_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1307580/library_600x900_2x.jpg"
     },
     {
       "id": "fallout-tactics",
       "name": "Fallout Tactics - Brotherhood of Steel",
-      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/fallout-tactics/manifest.json"
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/fallout-tactics/manifest.json",
+      "cover_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/38420/library_hero.jpg",
+      "avatar_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/38420/library_600x900_2x.jpg"
     },
     {
       "id": "hotline-miami",
       "name": "Hotline Miami",
-      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/hotline-miami/manifest.json"
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/hotline-miami/manifest.json",
+      "cover_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/219150/library_hero.jpg",
+      "avatar_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/219150/library_600x900_2x.jpg"
     },
     {
       "id": "risk-of-rain-2",
       "name": "Risk of Rain 2",
-      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/risk-of-rain-2/manifest.json"
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/risk-of-rain-2/manifest.json",
+      "cover_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/632360/library_hero.jpg",
+      "avatar_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/632360/library_600x900_2x.jpg"
     },
     {
       "id": "tails-backbone",
       "name": "Tails: The Backbone Preludes",
-      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/tails-backbone/manifest.json"
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/tails-backbone/manifest.json",
+      "cover_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/2020030/library_hero.jpg",
+      "avatar_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/2020030/library_600x900_2x.jpg"
     },
     {
       "id": "tails-noir",
       "name": "Tails Noir",
-      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/tails-noir/manifest.json"
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/tails-noir/manifest.json",
+      "cover_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/865610/library_hero.jpg",
+      "avatar_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/865610/library_600x900_2x.jpg"
     },
     {
       "id": "ravenous-devils",
       "name": "Ravenous Devils",
-      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/ravenous-devils/manifest.json"
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/ravenous-devils/manifest.json",
+      "cover_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1615290/library_hero.jpg",
+      "avatar_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1615290/library_600x900_2x.jpg"
     },
     {
       "id": "erra-exordium",
       "name": "Erra: Exordium",
-      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/erra-exordium/manifest.json"
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/erra-exordium/manifest.json",
+      "cover_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1224030/library_hero.jpg",
+      "avatar_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1224030/library_600x900_2x.jpg"
     },
     {
       "id": "forever-ago",
       "name": "Forever Ago",
-      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/forever-ago/manifest.json"
+      "manifest_url": "https://github.com/tuan3991/viethoagame-manager/raw/main/games/forever-ago/manifest.json",
+      "cover_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1215940/library_hero.jpg",
+      "avatar_image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1215940/library_600x900_2x.jpg"
     }
   ]
 }
